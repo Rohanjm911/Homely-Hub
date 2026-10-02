@@ -9,6 +9,10 @@
   Built with MERN Stack • Redux Toolkit • Groq AI • Leaflet Maps • JWT Cookie Auth
 </p>
 
+<p align="center">
+  <img src="house-animation.svg" alt="HomelyHub Floating Sanctuary Animation" width="620" />
+</p>
+
 ---
 
 ## 📌 Project Overview
@@ -18,11 +22,22 @@ Featuring a modern **Nordic Frost & Electric Violet** interface, buttery-smooth 
 
 ---
 
-## 🎨 Design & Aesthetic Highlights
+## ✨ Dynamic Visual & Animation Features
 
-- **Nordic Frost & Electric Violet Palette**:
+- **🏠 Interactive Living Sanctuary Animation**:
+  - Live animated SVG and CSS physics: Floating villa with smooth levitation dynamics (`houseFloat`).
+  - Staged chimney smoke stream (`chimneySmoke`) and breathing warm golden window light cycles (`windowGlow`).
+  - Constellation night-sky twinkle effects and ambient radial glow.
+- **🎨 Nordic Frost & Electric Violet Palette**:
   - Light mode: Glacial slate background (`#f8fafc`) with translucent frosted ice surfaces and vibrant electric indigo accents (`#6366f1`).
   - Dark mode: Deep midnight slate (`#060813`) with subtle indigo glow borders (`rgba(99, 102, 241, 0.18)`) and radiant violet text highlights (`#818cf8`).
+- **💫 Circular Ripple Theme Transition**:
+  - Originates from the exact center coordinates of the toggle button.
+  - Powered by the native View Transitions API with spring easing (`cubic-bezier(0.16, 1, 0.3, 1)`).
+- **🔎 Smooth Micro-Interactions**:
+  - Continuous curvature squircle inputs (`border-radius: 16px`) and capsule buttons with subtle tactile press physics (`scale(0.975)`).
+  - Cinematic slow-zoom on property cards (`scale(1.05)` with `cubic-bezier(0.16, 1, 0.3, 1)`).
+  - Hidden main window scroll track with custom 5px minimalist internal container scrollbars.
 - **Precision Typography & Layout**:
   - System font stack (`-apple-system`, `BlinkMacSystemFont`, `Inter`, `SF Pro`) with optical kerning and refined letter-spacing.
   - Consistent capsule radii, border-box geometry, and glassmorphic depth (`saturate(180%) blur(20px)`).
