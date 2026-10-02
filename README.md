@@ -41,16 +41,15 @@ Featuring a modern **Nordic Frost & Electric Violet** interface, buttery-smooth 
 - **Precision Typography & Layout**:
   - System font stack (`-apple-system`, `BlinkMacSystemFont`, `Inter`, `SF Pro`) with optical kerning and refined letter-spacing.
   - Consistent capsule radii, border-box geometry, and glassmorphic depth (`saturate(180%) blur(20px)`).
-- **Smooth Circular Ripple Theme Transition**:
-  - Originates from the exact center coordinates of the toggle button.
-  - Powered by the native View Transitions API with spring easing (`cubic-bezier(0.16, 1, 0.3, 1)`).
-- **Seamless Window Experience**:
-  - Main window features a hidden track scrollbar with full mouse/trackpad scrolling enabled.
-  - Dedicated internal sections (e.g., Host Properties & Occupancy) feature sleek 5px minimalist scrollbars.
 
 ---
 
 ## 🚀 Core Features
+
+<p align="center">
+  <img src="features-ticker.svg" alt="Core Platform Engines" width="760" />
+</p>
+
 
 ### 🛡️ Double Booking & Date Overlap Guard
 - Conflict condition: `existingStart < requestedEnd && existingEnd > requestedStart`
