@@ -42,27 +42,15 @@ const Navbar = () => {
       top: 0,
       zIndex: 1000,
       backgroundColor: 'var(--nav-bg)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
+      backdropFilter: 'saturate(180%) blur(20px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
       borderBottom: '1px solid var(--border-color)',
       transition: 'background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.3s ease',
-      boxShadow: '0 4px 20px -4px rgba(0, 0, 0, 0.04)',
     }}>
-      {/* Dual-Tone Ambient Hairline */}
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: '2px',
-        background: 'linear-gradient(90deg, transparent 0%, #059669 30%, #10b981 70%, #f59e0b 90%, transparent 100%)',
-        opacity: 0.6,
-      }} />
-
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '0.85rem 1.5rem',
+        padding: '0.75rem 1.5rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -73,7 +61,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           {/* GUEST SPECIFIC LINKS: Hidden for Hosts */}
           {!isHost && (
             <>
@@ -83,18 +71,16 @@ const Navbar = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.45rem',
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  color: isActive('/') ? '#059669' : 'var(--text-main)',
-                  padding: '0.52rem 1.05rem',
-                  borderRadius: '9999px',
-                  backgroundColor: isActive('/') ? 'var(--primary-light)' : 'transparent',
-                  border: isActive('/') ? '1px solid #a7f3d0' : '1px solid transparent',
-                  boxShadow: isActive('/') ? '0 2px 8px rgba(5, 150, 105, 0.12)' : 'none',
-                  transition: 'all 0.2s ease',
+                  fontSize: '0.86rem',
+                  fontWeight: 500,
+                  color: isActive('/') ? 'var(--text-main)' : 'var(--text-muted)',
+                  padding: '0.45rem 0.95rem',
+                  borderRadius: 'var(--radius-full)',
+                  backgroundColor: isActive('/') ? 'var(--input-bg)' : 'transparent',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
               >
-                <Compass size={17} color={isActive('/') ? '#059669' : 'currentColor'} />
+                <Compass size={16} />
                 <span>Explore Stays</span>
               </Link>
             </>
@@ -108,18 +94,16 @@ const Navbar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.45rem',
-                fontSize: '0.92rem',
-                fontWeight: 800,
-                color: isActive('/host/dashboard') ? '#047857' : '#059669',
-                padding: '0.55rem 1.15rem',
-                borderRadius: '9999px',
-                backgroundColor: isActive('/host/dashboard') ? '#ecfdf5' : 'rgba(236, 253, 245, 0.85)',
-                border: '1.5px solid rgba(16, 185, 129, 0.4)',
-                boxShadow: '0 2px 10px rgba(16, 185, 129, 0.15)',
-                transition: 'all 0.2s ease',
+                fontSize: '0.86rem',
+                fontWeight: 600,
+                color: isActive('/host/dashboard') ? 'var(--text-main)' : 'var(--text-muted)',
+                padding: '0.45rem 1rem',
+                borderRadius: 'var(--radius-full)',
+                backgroundColor: isActive('/host/dashboard') ? 'var(--input-bg)' : 'transparent',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
-              <TrendingUp size={17} color="#059669" />
+              <TrendingUp size={16} color="var(--primary)" />
               <span>Host Analytics</span>
             </Link>
           )}
@@ -132,17 +116,16 @@ const Navbar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.45rem',
-                fontSize: '0.9rem',
-                fontWeight: 700,
-                color: isActive('/add-property') ? '#059669' : 'var(--text-main)',
-                padding: '0.52rem 1.05rem',
-                borderRadius: '9999px',
-                backgroundColor: isActive('/add-property') ? '#ecfdf5' : 'transparent',
-                border: isActive('/add-property') ? '1px solid #a7f3d0' : '1px solid transparent',
-                transition: 'all 0.2s ease',
+                fontSize: '0.86rem',
+                fontWeight: 500,
+                color: isActive('/add-property') ? 'var(--text-main)' : 'var(--text-muted)',
+                padding: '0.45rem 0.95rem',
+                borderRadius: 'var(--radius-full)',
+                backgroundColor: isActive('/add-property') ? 'var(--input-bg)' : 'transparent',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
-              <PlusCircle size={17} />
+              <PlusCircle size={16} />
               <span>Host a Stay</span>
             </Link>
           )}
@@ -155,18 +138,16 @@ const Navbar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.45rem',
-                fontSize: '0.9rem',
-                fontWeight: 700,
-                color: isActive('/guest/dashboard') || isActive('/my-bookings') ? '#1d4ed8' : 'var(--text-main)',
-                padding: '0.52rem 1.1rem',
-                borderRadius: '9999px',
-                backgroundColor: isActive('/guest/dashboard') || isActive('/my-bookings') ? 'rgba(37, 99, 235, 0.12)' : 'transparent',
-                border: isActive('/guest/dashboard') || isActive('/my-bookings') ? '1.5px solid rgba(37, 99, 235, 0.35)' : '1px solid var(--border-color)',
-                boxShadow: isActive('/guest/dashboard') || isActive('/my-bookings') ? '0 2px 10px rgba(37, 99, 235, 0.15)' : 'none',
-                transition: 'all 0.2s ease',
+                fontSize: '0.86rem',
+                fontWeight: 500,
+                color: isActive('/guest/dashboard') || isActive('/my-bookings') ? 'var(--text-main)' : 'var(--text-muted)',
+                padding: '0.45rem 0.95rem',
+                borderRadius: 'var(--radius-full)',
+                backgroundColor: isActive('/guest/dashboard') || isActive('/my-bookings') ? 'var(--input-bg)' : 'transparent',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
-              <Compass size={17} color="#2563eb" />
+              <Compass size={16} color="var(--primary)" />
               <span>Guest Dashboard</span>
             </Link>
           )}

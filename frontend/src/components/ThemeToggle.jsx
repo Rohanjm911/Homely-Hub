@@ -23,25 +23,22 @@ const ThemeToggle = ({ size = 'md' }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '38px',
-          height: '38px',
-          borderRadius: '12px',
+          width: '36px',
+          height: '36px',
+          borderRadius: 'var(--radius-full)',
           border: '1px solid var(--border-color)',
-          backgroundColor: isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(241, 245, 249, 0.95)',
-          color: isDark ? '#fef08a' : '#0284c7',
+          backgroundColor: 'var(--input-bg)',
+          color: isDark ? '#ffd60a' : 'var(--text-main)',
           cursor: 'pointer',
-          transition: 'all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
-          boxShadow: isDark
-            ? '0 2px 10px rgba(0, 0, 0, 0.35), 0 0 12px rgba(254, 240, 138, 0.2)'
-            : '0 2px 8px rgba(15, 23, 42, 0.06)',
+          transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
           position: 'relative',
           overflow: 'hidden',
         }}
         onMouseOver={(e) => {
-          e.currentTarget.style.transform = 'scale(1.08) rotate(6deg)';
+          e.currentTarget.style.transform = 'scale(1.05)';
         }}
         onMouseOut={(e) => {
-          e.currentTarget.style.transform = 'scale(1) rotate(0deg)';
+          e.currentTarget.style.transform = 'scale(1)';
         }}
         aria-label="Toggle dark and light mode"
       >
@@ -54,23 +51,23 @@ const ThemeToggle = ({ size = 'md' }) => {
           justifyContent: 'center',
         }}>
           <Moon
-            size={18}
-            strokeWidth={2.3}
+            size={17}
+            strokeWidth={2.2}
             style={{
               position: 'absolute',
-              transform: isDark ? 'rotate(0deg) scale(1)' : 'rotate(90deg) scale(0)',
+              transform: isDark ? 'rotate(0deg) scale(1)' : 'rotate(100deg) scale(0)',
               opacity: isDark ? 1 : 0,
-              transition: 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease',
+              transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease',
             }}
           />
           <Sun
-            size={19}
-            strokeWidth={2.3}
+            size={18}
+            strokeWidth={2.2}
             style={{
               position: 'absolute',
-              transform: !isDark ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0)',
+              transform: !isDark ? 'rotate(0deg) scale(1)' : 'rotate(-100deg) scale(0)',
               opacity: !isDark ? 1 : 0,
-              transition: 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease',
+              transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease',
             }}
           />
         </div>

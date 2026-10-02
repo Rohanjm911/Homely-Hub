@@ -86,41 +86,40 @@ const NotificationCenter = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '38px',
-          height: '38px',
-          borderRadius: '50%',
-          backgroundColor: isOpen ? 'var(--bg-subtle)' : 'transparent',
+          width: '36px',
+          height: '36px',
+          borderRadius: 'var(--radius-full)',
+          backgroundColor: isOpen ? 'var(--border-color)' : 'var(--input-bg)',
           border: '1px solid var(--border-color)',
           color: 'var(--text-main)',
           cursor: 'pointer',
-          transition: 'all 0.2s ease',
+          transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
         onMouseOver={(e) => {
-          e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
+          e.currentTarget.style.transform = 'scale(1.05)';
         }}
         onMouseOut={(e) => {
-          if (!isOpen) e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.transform = 'scale(1)';
         }}
       >
-        <Bell size={18} />
+        <Bell size={16} />
         {unreadCount > 0 && (
           <span
             style={{
               position: 'absolute',
-              top: '-3px',
-              right: '-3px',
-              width: '18px',
-              height: '18px',
+              top: '-2px',
+              right: '-2px',
+              width: '16px',
+              height: '16px',
               borderRadius: '50%',
-              backgroundColor: '#f43f5e',
+              backgroundColor: 'var(--accent-coral)',
               color: '#ffffff',
-              fontSize: '0.68rem',
-              fontWeight: 800,
+              fontSize: '0.65rem',
+              fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '2px solid var(--bg-card)',
-              animation: 'pulseGlow 2s infinite',
+              border: '2px solid var(--bg-card-solid)',
             }}
           >
             {unreadCount > 9 ? '9+' : unreadCount}

@@ -70,26 +70,30 @@ const HomePage = () => {
       {/* Hero Section */}
       <section style={{
         position: 'relative',
-        borderRadius: '28px',
+        borderRadius: 'var(--radius-xl)',
         overflow: 'hidden',
         marginBottom: '2.5rem',
-        background: 'radial-gradient(circle at 80% 20%, #064e3b 0%, #090d16 65%, #022c22 120%)',
-        color: '#ffffff',
-        padding: '3.8rem 2.8rem',
-        boxShadow: '0 25px 40px -15px rgba(5, 150, 105, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.08) inset',
+        background: 'radial-gradient(ellipse at top, #1c1c1e 0%, #000000 100%)',
+        color: '#f5f5f7',
+        padding: '4rem 3rem',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: '0 24px 50px -15px rgba(0, 0, 0, 0.5)',
       }}>
-        {/* Subtle decorative background blur glow */}
-        <div style={{
-          position: 'absolute',
-          top: '-20%',
-          right: '-10%',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(217, 119, 6, 0.12) 50%, rgba(6, 78, 59, 0) 75%)',
-          filter: 'blur(50px)',
-          pointerEvents: 'none',
-        }} />
+        {/* Subtle diffuse ambient lighting */}
+        <div
+          className="ambient-glow-mesh"
+          style={{
+            position: 'absolute',
+            top: '-30%',
+            right: '-10%',
+            width: '520px',
+            height: '520px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0, 113, 227, 0.22) 0%, rgba(88, 86, 214, 0.1) 40%, transparent 70%)',
+            filter: 'blur(70px)',
+            pointerEvents: 'none',
+          }}
+        />
 
         <div style={{
           display: 'grid',
@@ -105,134 +109,134 @@ const HomePage = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.55rem',
-              padding: '0.45rem 1rem',
-              borderRadius: '9999px',
+              padding: '0.35rem 0.95rem',
+              borderRadius: 'var(--radius-full)',
               backgroundColor: 'rgba(255, 255, 255, 0.08)',
               backdropFilter: 'blur(12px)',
-              fontSize: '0.82rem',
-              fontWeight: 800,
-              color: '#34d399',
+              fontSize: '0.76rem',
+              fontWeight: 600,
+              color: '#86868b',
               marginBottom: '1.25rem',
-              border: '1px solid rgba(52, 211, 153, 0.35)',
-              boxShadow: '0 4px 15px rgba(5, 150, 105, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              letterSpacing: '0.04em',
             }}>
-              <Sparkles size={16} />
-              <span>AI-POWERED STAYS & INSTANT ITINERARIES</span>
+              <Sparkles size={14} color="var(--primary)" />
+              <span style={{ color: '#f5f5f7' }}>SEAMLESS PROPERTY DISCOVERY</span>
             </div>
 
             <h1 style={{
-              fontSize: 'clamp(2.1rem, 3.8vw, 3.2rem)',
-              fontWeight: 800,
-              lineHeight: 1.16,
+              fontSize: 'clamp(2.3rem, 4vw, 3.3rem)',
+              fontWeight: 700,
+              lineHeight: 1.1,
               marginBottom: '1.2rem',
-              color: '#ffffff',
-              letterSpacing: '-0.03em',
+              color: '#f5f5f7',
+              letterSpacing: '-0.04em',
             }}>
-              Find Your Cozy Haven, <br />
+              Connecting Verified <br />
               <span style={{
-                background: 'linear-gradient(135deg, #34d399 0%, #fbbf24 100%)',
+                background: 'linear-gradient(180deg, #ffffff 0%, #86868b 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}>
-                Book with Zero Date Clash.
+                Owners and Tenants.
               </span>
             </h1>
 
-            <p style={{ fontSize: '1.02rem', color: '#cbd5e1', lineHeight: 1.65, marginBottom: '2rem', maxWidth: '540px' }}>
-              Explore verified villas, mountain chalets, and heritage suites with smart date-overlap protection, transparent pricing, and instant Groq AI travel curation.
+            <p style={{ fontSize: '1.02rem', color: '#a1a1a6', lineHeight: 1.6, marginBottom: '2rem', maxWidth: '540px', fontWeight: 400 }}>
+              Seamless property discovery connecting verified owners and tenants with atomic date-overlap protection and effortless AI travel curation.
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
               <Link
                 to="/ai-trip-planner"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.6rem',
-                  background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
+                  gap: '0.55rem',
+                  background: '#0071e3',
                   color: '#ffffff',
-                  padding: '0.85rem 1.65rem',
-                  borderRadius: '14px',
-                  fontWeight: 700,
-                  fontSize: '0.95rem',
-                  boxShadow: '0 8px 24px -4px rgba(5, 150, 105, 0.45)',
+                  padding: '0.75rem 1.45rem',
+                  borderRadius: 'var(--radius-full)',
+                  fontWeight: 500,
+                  fontSize: '0.92rem',
                   textDecoration: 'none',
                   transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 4px 14px rgba(0, 113, 227, 0.3)',
                 }}
-                onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 28px -4px rgba(5, 150, 105, 0.6)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px -4px rgba(5, 150, 105, 0.45)'; }}
+                onMouseOver={(e) => { e.currentTarget.style.backgroundColor = '#0077ed'; e.currentTarget.style.transform = 'scale(1.02)'; }}
+                onMouseOut={(e) => { e.currentTarget.style.backgroundColor = '#0071e3'; e.currentTarget.style.transform = 'scale(1)'; }}
               >
-                <Sparkles size={18} color="#fef08a" />
-                Try AI Trip Planner
+                <Sparkles size={16} />
+                Explore AI Planner
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Floating Glassmorphic Stay Highlights & Stats */}
+          {/* Right Column: Precision Glass Highlights Card */}
           <div style={{
-            background: 'linear-gradient(145deg, rgba(16, 23, 38, 0.85) 0%, rgba(6, 78, 59, 0.4) 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            borderRadius: '24px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            borderRadius: 'var(--radius-lg)',
             border: '1px solid rgba(255, 255, 255, 0.12)',
-            padding: '1.8rem',
-            boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.4)',
+            padding: '2rem',
+            boxShadow: '0 20px 45px rgba(0, 0, 0, 0.4)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1.25rem',
+            gap: '1.4rem',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1.1rem' }}>
               <div>
-                <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.6px', color: '#94a3b8', fontWeight: 800 }}>
-                  Curated Collection
+                <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#86868b', fontWeight: 600 }}>
+                  Engineered Comfort
                 </span>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', marginTop: '0.2rem' }}>
-                  Handpicked Luxury
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#f5f5f7', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
+                  Handpicked Stays
                 </h3>
               </div>
               <span style={{
-                padding: '0.3rem 0.75rem',
-                borderRadius: '9999px',
-                background: 'rgba(5, 150, 105, 0.25)',
-                border: '1px solid rgba(52, 211, 153, 0.4)',
-                color: '#34d399',
-                fontSize: '0.78rem',
-                fontWeight: 700,
+                padding: '0.3rem 0.8rem',
+                borderRadius: 'var(--radius-full)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#f5f5f7',
+                fontSize: '0.75rem',
+                fontWeight: 500,
               }}>
-                100% Verified
+                Verified Quality
               </span>
             </div>
 
             {/* Quick Metrics Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.8rem', textAlign: 'center' }}>
-              <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.85rem 0.5rem', borderRadius: '14px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-                <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#34d399' }}>0</div>
-                <div style={{ fontSize: '0.72rem', color: '#cbd5e1', marginTop: '0.2rem', fontWeight: 600 }}>Date Clashes</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem', textAlign: 'center' }}>
+              <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.9rem 0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f5f5f7', letterSpacing: '-0.02em' }}>0</div>
+                <div style={{ fontSize: '0.72rem', color: '#86868b', marginTop: '0.2rem', fontWeight: 500 }}>Clash Rate</div>
               </div>
-              <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.85rem 0.5rem', borderRadius: '14px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-                <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#fbbf24' }}>4.9★</div>
-                <div style={{ fontSize: '0.72rem', color: '#cbd5e1', marginTop: '0.2rem', fontWeight: 600 }}>Avg Rating</div>
+              <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.9rem 0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#2997ff', letterSpacing: '-0.02em' }}>4.9★</div>
+                <div style={{ fontSize: '0.72rem', color: '#86868b', marginTop: '0.2rem', fontWeight: 500 }}>Avg Rating</div>
               </div>
-              <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.85rem 0.5rem', borderRadius: '14px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-                <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#38bdf8' }}>AI</div>
-                <div style={{ fontSize: '0.72rem', color: '#cbd5e1', marginTop: '0.2rem', fontWeight: 600 }}>Trip Curator</div>
+              <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.9rem 0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#34c759', letterSpacing: '-0.02em' }}>100%</div>
+                <div style={{ fontSize: '0.72rem', color: '#86868b', marginTop: '0.2rem', fontWeight: 500 }}>Instant Confirm</div>
               </div>
             </div>
 
-            {/* Guarantee Highlight */}
+            {/* Subtle verification pill */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              backgroundColor: 'rgba(5, 150, 105, 0.15)',
-              border: '1px solid rgba(52, 211, 153, 0.25)',
-              borderRadius: '12px',
+              backgroundColor: 'rgba(255, 255, 255, 0.04)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: 'var(--radius-sm)',
               padding: '0.75rem 1rem',
-              fontSize: '0.82rem',
-              color: '#d1fae5',
+              fontSize: '0.8rem',
+              color: '#a1a1a6',
             }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10b981', flexShrink: 0 }} />
-              <span>Real-time availability locking prevents double bookings instantaneously.</span>
+              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#34c759', flexShrink: 0 }} />
+              <span>Real-time availability lock with atomic reservations</span>
             </div>
           </div>
         </div>
@@ -256,11 +260,11 @@ const HomePage = () => {
         marginBottom: '1.75rem',
       }}>
         <div>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: '1.35rem', fontWeight: 600, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             {filters.city ? `Stays in ${filters.city}` : 'All Available Stays'}
           </h2>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-            Showing {properties.length} of {filteredPropertiesCount} stays matching your criteria
+          <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+            Showing {properties.length} of {filteredPropertiesCount} properties
           </p>
         </div>
 
@@ -268,9 +272,9 @@ const HomePage = () => {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: 'var(--bg-subtle)',
-          padding: '0.3rem',
-          borderRadius: '14px',
+          backgroundColor: 'var(--input-bg)',
+          padding: '0.25rem',
+          borderRadius: 'var(--radius-full)',
           border: '1px solid var(--border-color)',
         }}>
           <button
@@ -278,42 +282,42 @@ const HomePage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.48rem 0.95rem',
-              borderRadius: '10px',
+              gap: '0.4rem',
+              padding: '0.4rem 0.9rem',
+              borderRadius: 'var(--radius-full)',
               border: 'none',
-              backgroundColor: viewMode === 'grid' ? 'var(--bg-card)' : 'transparent',
-              color: viewMode === 'grid' ? '#059669' : 'var(--text-muted)',
-              fontWeight: 700,
-              fontSize: '0.85rem',
+              backgroundColor: viewMode === 'grid' ? 'var(--bg-card-solid)' : 'transparent',
+              color: viewMode === 'grid' ? 'var(--text-main)' : 'var(--text-muted)',
+              fontWeight: 500,
+              fontSize: '0.82rem',
               cursor: 'pointer',
-              boxShadow: viewMode === 'grid' ? 'var(--shadow-sm)' : 'none',
-              transition: 'all 0.2s ease',
+              boxShadow: viewMode === 'grid' ? 'var(--shadow-xs)' : 'none',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            <LayoutGrid size={16} />
-            Grid View
+            <LayoutGrid size={15} />
+            Grid
           </button>
           <button
             onClick={() => setViewMode('map')}
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.48rem 0.95rem',
-              borderRadius: '10px',
+              gap: '0.4rem',
+              padding: '0.4rem 0.9rem',
+              borderRadius: 'var(--radius-full)',
               border: 'none',
-              backgroundColor: viewMode === 'map' ? 'var(--bg-card)' : 'transparent',
-              color: viewMode === 'map' ? '#059669' : 'var(--text-muted)',
-              fontWeight: 700,
-              fontSize: '0.85rem',
+              backgroundColor: viewMode === 'map' ? 'var(--bg-card-solid)' : 'transparent',
+              color: viewMode === 'map' ? 'var(--text-main)' : 'var(--text-muted)',
+              fontWeight: 500,
+              fontSize: '0.82rem',
               cursor: 'pointer',
-              boxShadow: viewMode === 'map' ? 'var(--shadow-sm)' : 'none',
-              transition: 'all 0.2s ease',
+              boxShadow: viewMode === 'map' ? 'var(--shadow-xs)' : 'none',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
-            <Map size={16} />
-            Map View
+            <Map size={15} />
+            Map
           </button>
         </div>
       </div>
@@ -331,8 +335,8 @@ const HomePage = () => {
           <div style={{
             width: '40px',
             height: '40px',
-            border: '3px solid #e2e8f0',
-            borderTopColor: '#0284c7',
+            border: '3px solid var(--border-color)',
+            borderTopColor: '#d97706',
             borderRadius: '50%',
             animation: 'spin 0.8s linear infinite',
           }} />
@@ -399,23 +403,22 @@ const HomePage = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.4rem',
-                  padding: '0.6rem 1.15rem',
-                  borderRadius: '12px',
+                  padding: '0.55rem 1.1rem',
+                  borderRadius: 'var(--radius-full)',
                   border: '1px solid var(--border-color)',
-                  backgroundColor: currentPage <= 1 ? 'var(--bg-subtle)' : 'var(--bg-card)',
+                  backgroundColor: currentPage <= 1 ? 'transparent' : 'var(--bg-card-solid)',
                   color: currentPage <= 1 ? 'var(--text-subtle)' : 'var(--text-main)',
-                  fontWeight: 700,
-                  fontSize: '0.88rem',
+                  fontWeight: 500,
+                  fontSize: '0.84rem',
                   cursor: currentPage <= 1 ? 'not-allowed' : 'pointer',
-                  boxShadow: currentPage <= 1 ? 'none' : 'var(--shadow-sm)',
-                  opacity: currentPage <= 1 ? 0.6 : 1,
-                  transition: 'all 0.2s ease',
+                  opacity: currentPage <= 1 ? 0.4 : 1,
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
               >
-                <ChevronLeft size={16} /> Previous
+                <ChevronLeft size={15} /> Previous
               </button>
 
-              <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-main)', padding: '0 0.5rem' }}>
+              <span style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)', padding: '0 0.5rem' }}>
                 Page {currentPage} of {totalPages}
               </span>
 
@@ -426,20 +429,19 @@ const HomePage = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.4rem',
-                  padding: '0.6rem 1.15rem',
-                  borderRadius: '12px',
+                  padding: '0.55rem 1.1rem',
+                  borderRadius: 'var(--radius-full)',
                   border: '1px solid var(--border-color)',
-                  backgroundColor: currentPage >= totalPages ? 'var(--bg-subtle)' : 'var(--bg-card)',
+                  backgroundColor: currentPage >= totalPages ? 'transparent' : 'var(--bg-card-solid)',
                   color: currentPage >= totalPages ? 'var(--text-subtle)' : 'var(--text-main)',
-                  fontWeight: 700,
-                  fontSize: '0.88rem',
+                  fontWeight: 500,
+                  fontSize: '0.84rem',
                   cursor: currentPage >= totalPages ? 'not-allowed' : 'pointer',
-                  boxShadow: currentPage >= totalPages ? 'none' : 'var(--shadow-sm)',
-                  opacity: currentPage >= totalPages ? 0.6 : 1,
-                  transition: 'all 0.2s ease',
+                  opacity: currentPage >= totalPages ? 0.4 : 1,
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
               >
-                Next <ChevronRight size={16} />
+                Next <ChevronRight size={15} />
               </button>
             </div>
           )}

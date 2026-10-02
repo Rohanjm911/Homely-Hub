@@ -5,10 +5,11 @@ import Logo from './Logo';
 const Footer = () => {
   return (
     <footer style={{
-      backgroundColor: '#ffffff',
-      borderTop: '1px solid #e2e8f0',
-      padding: '3rem 1.5rem 2rem',
+      backgroundColor: 'var(--bg-main)',
+      borderTop: '1px solid var(--border-color)',
+      padding: '3rem 1.5rem 2.5rem',
       marginTop: '4rem',
+      transition: 'background-color 0.35s ease, border-color 0.35s ease',
     }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <div style={{
@@ -20,76 +21,77 @@ const Footer = () => {
           {/* Brand Info */}
           <div>
             <div style={{ marginBottom: '0.85rem' }}>
-              <Logo size="sm" showSubtitle={true} subtitleText="Feels Like Home, Anywhere" />
+              <Logo size="sm" showSubtitle={true} subtitleText="Find Your Retreat" />
             </div>
-            <p style={{ fontSize: '0.88rem', color: '#64748b', lineHeight: 1.6, marginBottom: '1rem' }}>
-              Next-generation AI-powered stay booking & travel planning platform. Seamlessly connect with top verified stays across India.
+            <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.1rem' }}>
+              Next-generation vacation stay discovery & intelligent travel curation. Effortless, conflict-free bookings designed for tranquility.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-              <span style={{ fontSize: '0.72rem', background: '#f1f5f9', color: '#475569', padding: '0.2rem 0.6rem', borderRadius: '6px', fontWeight: 600 }}>MERN Stack</span>
-              <span style={{ fontSize: '0.72rem', background: '#f1f5f9', color: '#475569', padding: '0.2rem 0.6rem', borderRadius: '6px', fontWeight: 600 }}>JWT Cookie Auth</span>
-              <span style={{ fontSize: '0.72rem', background: '#f5f3ff', color: '#7c3aed', padding: '0.2rem 0.6rem', borderRadius: '6px', fontWeight: 600 }}>Groq LLM</span>
-              <span style={{ fontSize: '0.72rem', background: '#f1f5f9', color: '#475569', padding: '0.2rem 0.6rem', borderRadius: '6px', fontWeight: 600 }}>Leaflet Maps</span>
+              <span style={{ fontSize: '0.7rem', background: 'var(--input-bg)', color: 'var(--text-muted)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-xs)', fontWeight: 500 }}>Verified Stays</span>
+              <span style={{ fontSize: '0.7rem', background: 'var(--input-bg)', color: 'var(--text-muted)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-xs)', fontWeight: 500 }}>Secure Auth</span>
+              <span style={{ fontSize: '0.7rem', background: 'var(--input-bg)', color: 'var(--text-muted)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-xs)', fontWeight: 500 }}>AI Curation</span>
+              <span style={{ fontSize: '0.7rem', background: 'var(--input-bg)', color: 'var(--text-muted)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-xs)', fontWeight: 500 }}>Interactive Maps</span>
             </div>
           </div>
 
           {/* Quick Destinations */}
           <div>
-            <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem' }}>Top Destinations</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.88rem', color: '#64748b' }}>
-              <li>Goa Beach Villas</li>
+            <h4 style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Top Destinations</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+              <li>Goa Coastal Retreats</li>
               <li>Manali Mountain Chalets</li>
-              <li>Mumbai Skyline Flats</li>
-              <li>Jaipur Royal Haveli Suites</li>
-              <li>Bengaluru Digital Nomad Studios</li>
+              <li>Mumbai Skyline Lofts</li>
+              <li>Jaipur Heritage Suites</li>
+              <li>Bengaluru Creative Studios</li>
             </ul>
           </div>
 
           {/* Features */}
           <div>
-            <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem' }}>Platform Features</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.88rem', color: '#64748b' }}>
-              <li>Strict Date-Overlap Overbooking Guard</li>
-              <li>AI Listing Description Generator</li>
-              <li>Intelligent Day-by-Day Trip Planner</li>
-              <li>10-Minute Secure Password Recovery</li>
-              <li>Full Redux Toolkit State Engine</li>
+            <h4 style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Capabilities</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+              <li>Atomic Date Overlap Guard</li>
+              <li>Intelligent Listing Copywriter</li>
+              <li>Tailored Day-by-Day Itineraries</li>
+              <li>Direct Host Performance Analytics</li>
+              <li>Instant Reservation Receipts</li>
             </ul>
           </div>
 
-          {/* AI Info */}
+          {/* Intelligent Assistant Info Card */}
           <div style={{
-            background: 'linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%)',
+            background: 'var(--bg-card)',
             padding: '1.25rem',
-            borderRadius: '16px',
-            border: '1px solid #bbf7d0',
+            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--border-color)',
+            backdropFilter: 'blur(16px)',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: '#15803d', fontWeight: 700, fontSize: '0.95rem' }}>
-              <Sparkles size={18} />
-              AI-First Travel Experience
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: 'var(--text-main)', fontWeight: 600, fontSize: '0.88rem' }}>
+              <Sparkles size={16} color="var(--primary)" />
+              Intelligent Itinerary Generator
             </div>
-            <p style={{ fontSize: '0.82rem', color: '#166534', lineHeight: 1.5 }}>
-              Owners list places effortlessly with automated AI descriptions. Travelers plan entire trips with budget-aligned stays in seconds.
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+              Effortlessly generate full travel plans synchronized with your stay bookings in real-time.
             </p>
           </div>
         </div>
 
         <div style={{
-          borderTop: '1px solid #f1f5f9',
+          borderTop: '1px solid var(--border-subtle)',
           paddingTop: '1.5rem',
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
-          fontSize: '0.82rem',
-          color: '#94a3b8',
+          fontSize: '0.78rem',
+          color: 'var(--text-subtle)',
           gap: '1rem',
         }}>
           <div>
-            © 2026 HomelyHub Inc. All rights reserved.
+            © 2026 HomelyHub. All rights reserved.
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-            Built with modern MERN Stack & Groq AI
+            Engineered for seamless hospitality
           </div>
         </div>
       </div>

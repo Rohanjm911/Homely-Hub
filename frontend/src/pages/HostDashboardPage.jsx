@@ -878,7 +878,17 @@ const HostDashboardPage = () => {
                   </Link>
                 </div>
               ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div
+                  className="sleek-scrollbar"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.85rem',
+                    maxHeight: '480px',
+                    overflowY: 'auto',
+                    paddingRight: '0.4rem',
+                  }}
+                >
                   {analytics.propertyPerformance.map((prop) => (
                     <div
                       key={prop.id}

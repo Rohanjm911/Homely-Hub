@@ -187,34 +187,35 @@ const PropertyDetailPage = () => {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.4rem',
-          fontSize: '0.9rem',
-          fontWeight: 600,
-          color: '#64748b',
+          fontSize: '0.85rem',
+          fontWeight: 500,
+          color: 'var(--text-muted)',
           marginBottom: '1.25rem',
           textDecoration: 'none',
+          transition: 'color 0.2s ease',
         }}
       >
-        <ArrowLeft size={16} /> Back to explore stays
+        <ArrowLeft size={15} /> All Stays
       </Link>
 
       {/* Header Info */}
       <div style={{ marginBottom: '1.5rem' }}>
-        <h1 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.3rem)', fontWeight: 800, color: '#0f172a', marginBottom: '0.5rem' }}>
+        <h1 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.5rem', letterSpacing: '-0.03em' }}>
           {property.title}
         </h1>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap', fontSize: '0.9rem', color: '#64748b' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 700, color: '#0f172a' }}>
-            <Star size={16} color="#f59e0b" fill="#f59e0b" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontWeight: 600, color: 'var(--text-main)' }}>
+            <Star size={15} color="#f5a623" fill="#f5a623" />
             <span>{property.rating?.toFixed(2) || '4.85'}</span>
-            <span style={{ color: '#64748b', fontWeight: 500 }}>({property.numReviews || 12} reviews)</span>
+            <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>({property.numReviews || 12} reviews)</span>
           </div>
           <span>•</span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#0284c7', fontWeight: 600 }}>
-            <MapPin size={16} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+            <MapPin size={15} color="var(--primary)" />
             <span>{property.address}, {property.city}, {property.country || 'India'}</span>
           </div>
           <span>•</span>
-          <span style={{ backgroundColor: '#f1f5f9', color: '#475569', padding: '0.2rem 0.65rem', borderRadius: '9999px', fontWeight: 700, fontSize: '0.78rem' }}>
+          <span style={{ backgroundColor: 'var(--input-bg)', color: 'var(--text-main)', padding: '0.2rem 0.65rem', borderRadius: 'var(--radius-full)', fontWeight: 500, fontSize: '0.76rem' }}>
             {property.propertyType} ({property.roomType || 'Entire place'})
           </span>
         </div>
@@ -224,12 +225,13 @@ const PropertyDetailPage = () => {
       <div style={{
         display: 'grid',
         gridTemplateColumns: images.length > 1 ? '2.2fr 1fr' : '1fr',
-        gap: '0.85rem',
-        borderRadius: '24px',
+        gap: '0.75rem',
+        borderRadius: 'var(--radius-xl)',
         overflow: 'hidden',
-        height: '480px',
+        height: '460px',
         marginBottom: '2.5rem',
-        boxShadow: '0 10px 25px -5px rgba(15, 23, 42, 0.08)',
+        boxShadow: 'var(--shadow-md)',
+        border: '1px solid var(--border-color)',
       }}>
         <div style={{ height: '100%', overflow: 'hidden', position: 'relative' }}>
           <img
@@ -533,29 +535,29 @@ const PropertyDetailPage = () => {
               disabled={bookingLoading || hasOverlap || nights <= 0}
               style={{
                 width: '100%',
-                padding: '0.85rem',
-                borderRadius: '14px',
+                padding: '0.8rem',
+                borderRadius: 'var(--radius-full)',
                 border: 'none',
                 background: hasOverlap || nights <= 0
-                  ? 'var(--bg-subtle)'
-                  : 'linear-gradient(135deg, #059669 0%, #047857 100%)',
-                color: hasOverlap || nights <= 0 ? 'var(--text-muted)' : '#ffffff',
-                fontSize: '1rem',
-                fontWeight: 700,
+                  ? 'var(--input-bg)'
+                  : 'var(--primary)',
+                color: hasOverlap || nights <= 0 ? 'var(--text-subtle)' : '#ffffff',
+                fontSize: '0.94rem',
+                fontWeight: 600,
                 cursor: hasOverlap || nights <= 0 ? 'not-allowed' : 'pointer',
-                boxShadow: hasOverlap ? 'none' : '0 4px 14px rgba(5, 150, 105, 0.4)',
-                transition: 'all 0.2s ease',
+                boxShadow: hasOverlap ? 'none' : '0 4px 14px rgba(0, 113, 227, 0.3)',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
               onMouseOver={(e) => {
                 if (!hasOverlap && nights > 0) {
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(5, 150, 105, 0.5)';
-                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.backgroundColor = 'var(--primary-hover)';
+                  e.currentTarget.style.transform = 'scale(1.01)';
                 }
               }}
               onMouseOut={(e) => {
                 if (!hasOverlap && nights > 0) {
-                  e.currentTarget.style.boxShadow = '0 4px 14px rgba(5, 150, 105, 0.4)';
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.backgroundColor = 'var(--primary)';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }
               }}
             >

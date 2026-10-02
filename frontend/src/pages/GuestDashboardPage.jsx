@@ -144,14 +144,14 @@ const GuestDashboardPage = () => {
       {/* Top Hero Banner */}
       <div style={{
         position: 'relative',
-        borderRadius: '28px',
+        borderRadius: 'var(--radius-xl)',
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, #0284c7 0%, #2563eb 45%, #4338ca 100%)',
-        color: '#ffffff',
+        background: 'radial-gradient(ellipse at top, #1c1c1e 0%, #000000 100%)',
+        color: '#f5f5f7',
         padding: '3rem 2.5rem',
         marginBottom: '2.5rem',
-        boxShadow: '0 25px 50px -12px rgba(37, 99, 235, 0.35)',
-        border: '1px solid rgba(255, 255, 255, 0.15)',
+        boxShadow: '0 20px 45px rgba(0, 0, 0, 0.4)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
       }}>
         <div style={{
           position: 'absolute',
@@ -160,7 +160,7 @@ const GuestDashboardPage = () => {
           width: '420px',
           height: '420px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(147, 197, 253, 0.3) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(0, 113, 227, 0.25) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -169,70 +169,71 @@ const GuestDashboardPage = () => {
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.4rem 1rem',
-              borderRadius: '9999px',
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              gap: '0.45rem',
+              padding: '0.3rem 0.85rem',
+              borderRadius: 'var(--radius-full)',
+              backgroundColor: 'rgba(255, 255, 255, 0.08)',
               backdropFilter: 'blur(12px)',
-              fontSize: '0.84rem',
-              fontWeight: 700,
-              letterSpacing: '0.3px',
+              fontSize: '0.78rem',
+              fontWeight: 500,
+              color: '#86868b',
               marginBottom: '1rem',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
             }}>
-              <Compass size={16} color="#bae6fd" />
-              <span>Traveler Hub & Itineraries</span>
+              <Compass size={14} color="#2997ff" />
+              <span style={{ color: '#f5f5f7' }}>Traveler Activity & Itineraries</span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', marginBottom: '0.6rem' }}>
-              Guest Travel Dashboard
+            <h1 style={{ fontSize: 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: '#f5f5f7', letterSpacing: '-0.035em', marginBottom: '0.5rem' }}>
+              Travel Dashboard
             </h1>
-            <p style={{ fontSize: '1.02rem', color: '#e0f2fe', maxWidth: '620px', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.96rem', color: '#a1a1a6', maxWidth: '600px', lineHeight: 1.6, fontWeight: 400 }}>
               Review your completed voyages, lifetime travel spend, nights stayed, and active reservation itineraries in real-time.
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
             <button
               onClick={fetchGuestAnalytics}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.5rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                color: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                padding: '0.75rem 1.25rem',
-                borderRadius: '12px',
-                fontWeight: 700,
-                fontSize: '0.9rem',
+                gap: '0.45rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#f5f5f7',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                padding: '0.65rem 1.15rem',
+                borderRadius: 'var(--radius-full)',
+                fontWeight: 500,
+                fontSize: '0.86rem',
                 cursor: 'pointer',
-                backdropFilter: 'blur(8px)',
+                backdropFilter: 'blur(12px)',
                 transition: 'all 0.15s ease',
               }}
-              onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.25)'; }}
-              onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'; }}
+              onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.14)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)'; }}
             >
-              <RefreshCw size={16} /> Refresh
+              <RefreshCw size={14} /> Refresh
             </button>
             <Link
               to="/"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.55rem',
-                backgroundColor: '#ffffff',
-                color: '#1e40af',
-                padding: '0.75rem 1.4rem',
-                borderRadius: '12px',
-                fontWeight: 800,
-                fontSize: '0.92rem',
+                gap: '0.5rem',
+                backgroundColor: 'var(--primary)',
+                color: '#ffffff',
+                padding: '0.65rem 1.25rem',
+                borderRadius: 'var(--radius-full)',
+                fontWeight: 500,
+                fontSize: '0.86rem',
                 textDecoration: 'none',
-                boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)',
+                boxShadow: '0 4px 14px rgba(0, 113, 227, 0.3)',
                 transition: 'all 0.15s ease',
               }}
-              onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+              onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'var(--primary-hover)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'var(--primary)'; }}
             >
-              <Luggage size={18} /> Book Next Stay
+              <Luggage size={16} /> Explore Stays
             </Link>
           </div>
         </div>

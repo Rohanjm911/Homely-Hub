@@ -34,21 +34,23 @@ const PropertyCard = ({ property }) => {
       style={{
         display: 'block',
         textDecoration: 'none',
-        background: 'linear-gradient(180deg, var(--bg-card) 0%, var(--bg-subtle) 100%)',
-        borderRadius: '22px',
+        background: 'var(--bg-card)',
+        borderRadius: 'var(--radius-lg)',
         overflow: 'hidden',
         border: '1px solid var(--border-color)',
-        transition: 'transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease',
-        boxShadow: 'var(--shadow-md)',
+        boxShadow: 'var(--shadow-sm)',
         position: 'relative',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
       }}
-      className="card-hover-effect"
+      className="card-hover-effect property-card-wrapper"
     >
       {/* Image Carousel Container */}
-      <div style={{ position: 'relative', width: '100%', paddingTop: '66%', overflow: 'hidden', backgroundColor: '#e2e8f0' }}>
+      <div style={{ position: 'relative', width: '100%', paddingTop: '68%', overflow: 'hidden', backgroundColor: 'var(--bg-subtle)' }}>
         <img
           src={images[currentImgIndex]}
           alt={property.title}
+          loading="lazy"
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.src = 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&auto=format&fit=crop&q=80';
@@ -60,9 +62,9 @@ const PropertyCard = ({ property }) => {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            transition: 'transform 0.5s ease',
+            transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
-          onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+          onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.04)'; }}
           onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1.0)'; }}
         />
 
@@ -74,27 +76,28 @@ const PropertyCard = ({ property }) => {
             position: 'absolute',
             top: '12px',
             right: '12px',
-            background: 'rgba(255, 255, 255, 0.9)',
-            backdropFilter: 'blur(8px)',
+            background: 'rgba(255, 255, 255, 0.75)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
             border: 'none',
             borderRadius: '50%',
-            width: '34px',
-            height: '34px',
+            width: '32px',
+            height: '32px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             zIndex: 2,
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.12)',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
             transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }}
-          onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.88)'; }}
+          onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.9)'; }}
           onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
         >
           <Heart
-            size={17}
-            color={isFavorite ? '#f43f5e' : '#334155'}
-            fill={isFavorite ? '#f43f5e' : 'none'}
+            size={15}
+            color={isFavorite ? '#ff3b30' : '#1d1d1f'}
+            fill={isFavorite ? '#ff3b30' : 'none'}
           />
         </button>
 
@@ -103,17 +106,18 @@ const PropertyCard = ({ property }) => {
           position: 'absolute',
           top: '12px',
           left: '12px',
-          backgroundColor: 'rgba(15, 23, 42, 0.75)',
-          backdropFilter: 'blur(8px)',
+          backgroundColor: 'rgba(0, 0, 0, 0.65)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
           color: '#ffffff',
-          fontSize: '0.72rem',
-          fontWeight: 700,
-          padding: '0.28rem 0.7rem',
-          borderRadius: '9999px',
-          letterSpacing: '0.5px',
+          fontSize: '0.68rem',
+          fontWeight: 600,
+          padding: '0.25rem 0.65rem',
+          borderRadius: 'var(--radius-full)',
+          letterSpacing: '0.04em',
           textTransform: 'uppercase',
           zIndex: 2,
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
         }}>
           {property.propertyType}
         </div>
@@ -129,21 +133,21 @@ const PropertyCard = ({ property }) => {
                 top: '50%',
                 left: '10px',
                 transform: 'translateY(-50%)',
-                background: 'rgba(255, 255, 255, 0.9)',
-                backdropFilter: 'blur(6px)',
+                background: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
                 border: 'none',
                 borderRadius: '50%',
-                width: '30px',
-                height: '30px',
+                width: '28px',
+                height: '28px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 2,
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.15)',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
               }}
             >
-              <ChevronLeft size={16} color="#0f172a" />
+              <ChevronLeft size={15} color="#1d1d1f" />
             </button>
             <button
               onClick={nextImage}
@@ -153,21 +157,21 @@ const PropertyCard = ({ property }) => {
                 top: '50%',
                 right: '10px',
                 transform: 'translateY(-50%)',
-                background: 'rgba(255, 255, 255, 0.9)',
-                backdropFilter: 'blur(6px)',
+                background: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
                 border: 'none',
                 borderRadius: '50%',
-                width: '30px',
-                height: '30px',
+                width: '28px',
+                height: '28px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 2,
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.15)',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
               }}
             >
-              <ChevronRight size={16} color="#0f172a" />
+              <ChevronRight size={15} color="#1d1d1f" />
             </button>
 
             {/* Dots */}
@@ -177,22 +181,22 @@ const PropertyCard = ({ property }) => {
               left: '50%',
               transform: 'translateX(-50%)',
               display: 'flex',
-              gap: '5px',
+              gap: '4px',
               zIndex: 2,
-              padding: '3px 6px',
-              borderRadius: '9999px',
-              backgroundColor: 'rgba(0, 0, 0, 0.25)',
-              backdropFilter: 'blur(4px)',
+              padding: '2px 5px',
+              borderRadius: 'var(--radius-full)',
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              backdropFilter: 'blur(8px)',
             }}>
               {images.map((_, i) => (
                 <div
                   key={i}
                   style={{
-                    width: i === currentImgIndex ? '14px' : '5px',
-                    height: '5px',
-                    borderRadius: '3px',
-                    backgroundColor: i === currentImgIndex ? '#ffffff' : 'rgba(255, 255, 255, 0.6)',
-                    transition: 'all 0.25s ease',
+                    width: i === currentImgIndex ? '12px' : '4px',
+                    height: '4px',
+                    borderRadius: '2px',
+                    backgroundColor: i === currentImgIndex ? '#ffffff' : 'rgba(255, 255, 255, 0.5)',
+                    transition: 'all 0.2s ease',
                   }}
                 />
               ))}
@@ -202,28 +206,24 @@ const PropertyCard = ({ property }) => {
       </div>
 
       {/* Card Body */}
-      <div style={{ padding: '1.15rem' }}>
+      <div style={{ padding: '1rem 1.15rem 1.15rem' }}>
         {/* City & Rating */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.45rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-            <MapPin size={14} color="#059669" />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+            <MapPin size={13} color="var(--primary)" />
             <span>{property.city}, {property.country || 'India'}</span>
           </div>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             gap: '0.25rem',
-            fontSize: '0.82rem',
-            fontWeight: 700,
-            color: '#d97706',
-            backgroundColor: 'rgba(217, 119, 6, 0.12)',
-            padding: '0.2rem 0.5rem',
-            borderRadius: '8px',
-            border: '1px solid rgba(217, 119, 6, 0.25)'
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            color: 'var(--text-main)',
           }}>
-            <Star size={13} color="#d97706" fill="#d97706" />
-            <span style={{ color: 'var(--text-main)', fontWeight: 800 }}>{property.rating?.toFixed(2) || '4.85'}</span>
-            <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+            <Star size={13} color="#f5a623" fill="#f5a623" />
+            <span>{property.rating?.toFixed(2) || '4.85'}</span>
+            <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400 }}>
               ({property.numReviews || 12})
             </span>
           </div>
@@ -231,46 +231,45 @@ const PropertyCard = ({ property }) => {
 
         {/* Title */}
         <h3 style={{
-          fontSize: '1.02rem',
-          fontWeight: 700,
+          fontSize: '0.98rem',
+          fontWeight: 600,
           color: 'var(--text-main)',
-          marginBottom: '0.6rem',
+          marginBottom: '0.5rem',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
-          letterSpacing: '-0.01em',
+          letterSpacing: '-0.015em',
         }}>
           {property.title}
         </h3>
 
         {/* Capacity Badges */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '0.9rem' }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', backgroundColor: 'var(--bg-subtle)', padding: '0.2rem 0.5rem', borderRadius: '6px' }}>
-            <Users size={13} color="var(--text-muted)" /> {property.maxGuests} guests
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.85rem' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', backgroundColor: 'var(--input-bg)', padding: '0.15rem 0.5rem', borderRadius: 'var(--radius-xs)' }}>
+            <Users size={12} color="var(--text-muted)" /> {property.maxGuests} guests
           </span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', backgroundColor: 'var(--bg-subtle)', padding: '0.2rem 0.5rem', borderRadius: '6px' }}>
-            <Bed size={13} color="var(--text-muted)" /> {property.bedrooms} bed{property.bedrooms > 1 ? 's' : ''}
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', backgroundColor: 'var(--input-bg)', padding: '0.15rem 0.5rem', borderRadius: 'var(--radius-xs)' }}>
+            <Bed size={12} color="var(--text-muted)" /> {property.bedrooms} bed{property.bedrooms > 1 ? 's' : ''}
           </span>
         </div>
 
-        {/* Price */}
-        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.85rem', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+        {/* Price Lockup */}
+        <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '0.75rem', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
           <div>
-            <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#059669', letterSpacing: '-0.02em' }}>
+            <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
               ₹{property.pricePerNight?.toLocaleString()}
             </span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 500 }}> / night</span>
+            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 400 }}> / night</span>
           </div>
           <span style={{
-            fontSize: '0.74rem',
-            color: '#059669',
-            fontWeight: 700,
-            background: 'rgba(5, 150, 105, 0.12)',
-            border: '1px solid rgba(5, 150, 105, 0.25)',
+            fontSize: '0.72rem',
+            color: 'var(--primary)',
+            fontWeight: 500,
+            background: 'var(--primary-light)',
             padding: '0.2rem 0.55rem',
-            borderRadius: '9999px'
+            borderRadius: 'var(--radius-full)'
           }}>
-            Free cancellation
+            Instant lock
           </span>
         </div>
       </div>

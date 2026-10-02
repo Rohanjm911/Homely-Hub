@@ -1,61 +1,81 @@
 import React from 'react';
-import { Search, MapPin, Calendar, Home, Users, RotateCcw } from 'lucide-react';
+import { Search, MapPin, Calendar, Home, Users, RotateCcw, Palmtree, Mountain, Building2, Trees, Sparkles, Compass } from 'lucide-react';
 
 const popularCities = ['All', 'Goa', 'Manali', 'Mumbai', 'Jaipur', 'Bengaluru', 'Kerala'];
+
+const categories = [
+  { id: '', label: 'All Stays', icon: Compass },
+  { id: 'Villa', label: 'Villas', icon: Palmtree },
+  { id: 'Cottage', label: 'Cottages', icon: Mountain },
+  { id: 'Flat', label: 'Apartments', icon: Building2 },
+  { id: 'Guest House', label: 'Guest Houses', icon: Trees },
+  { id: 'Hotel', label: 'Luxury Hotels', icon: Sparkles },
+  { id: 'House', label: 'Independent Homes', icon: Home },
+];
 
 const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
   const propertyTypes = ['All', 'House', 'Flat', 'Guest House', 'Hotel', 'Villa', 'Cottage'];
 
   return (
     <div style={{
-      background: 'linear-gradient(180deg, var(--bg-card) 0%, var(--bg-subtle) 100%)',
-      borderRadius: '26px',
-      padding: '1.45rem 1.75rem',
-      boxShadow: '0 12px 30px -6px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(5, 150, 105, 0.08)',
+      background: 'var(--bg-card)',
+      borderRadius: 'var(--radius-xl)',
+      padding: '1.25rem 1.5rem',
+      boxShadow: 'var(--shadow-sm)',
       border: '1px solid var(--border-color)',
-      marginBottom: '2.5rem',
+      marginBottom: '2rem',
       position: 'relative',
-      overflow: 'hidden',
+      backdropFilter: 'saturate(180%) blur(20px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
       transition: 'background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease',
     }}>
-      {/* Dual-Tone Top Trim Accent */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '3px',
-        background: 'linear-gradient(90deg, #059669 0%, #10b981 50%, #f59e0b 100%)',
-        opacity: 0.9,
-      }} />
+      {/* Category Segment Strip */}
+      <div className="category-pills-bar" style={{ marginBottom: '1.1rem', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.75rem' }}>
+        {categories.map((cat) => {
+          const Icon = cat.icon;
+          const isActive = (cat.id === '' && !filters.propertyType) || filters.propertyType === cat.id;
+          return (
+            <button
+              key={cat.label}
+              type="button"
+              className={`category-pill-item ${isActive ? 'active' : ''}`}
+              onClick={() => onFilterChange({ propertyType: cat.id })}
+              aria-label={`Filter by ${cat.label}`}
+            >
+              <Icon size={15} strokeWidth={isActive ? 2.2 : 1.8} />
+              <span>{cat.label}</span>
+            </button>
+          );
+        })}
+      </div>
 
-      {/* Top Filter Inputs Grid */}
+      {/* Filter Inputs Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))',
-        gap: '0.9rem',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+        gap: '0.75rem',
         alignItems: 'center',
-        marginBottom: '1.25rem',
+        marginBottom: '1rem',
       }}>
         {/* City / Keyword */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <label style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+          <label style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Where
           </label>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.55rem',
-            padding: '0.65rem 0.85rem',
-            backgroundColor: 'var(--bg-subtle)',
-            borderRadius: '14px',
+            gap: '0.5rem',
+            padding: '0.6rem 0.8rem',
+            backgroundColor: 'var(--input-bg)',
+            borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border-color)',
             transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
           }}>
-            <MapPin size={17} color="#059669" />
+            <MapPin size={15} color="var(--primary)" />
             <input
               type="text"
-              placeholder="Search destination or stay"
+              placeholder="Search destination"
               value={filters.keyword || ''}
               onChange={(e) => onFilterChange({ keyword: e.target.value })}
               style={{
@@ -63,8 +83,8 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
                 border: 'none',
                 background: 'transparent',
                 outline: 'none',
-                fontSize: '0.88rem',
-                fontWeight: 600,
+                fontSize: '0.86rem',
+                fontWeight: 500,
                 color: 'var(--text-main)',
               }}
             />
@@ -72,20 +92,20 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
         </div>
 
         {/* Check-In Date */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <label style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+          <label style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Check In
           </label>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.55rem',
-            padding: '0.65rem 0.85rem',
-            backgroundColor: 'var(--bg-subtle)',
-            borderRadius: '14px',
+            gap: '0.5rem',
+            padding: '0.6rem 0.8rem',
+            backgroundColor: 'var(--input-bg)',
+            borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border-color)',
           }}>
-            <Calendar size={17} color="#059669" />
+            <Calendar size={15} color="var(--primary)" />
             <input
               type="date"
               value={filters.checkIn || ''}
@@ -95,8 +115,8 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
                 border: 'none',
                 background: 'transparent',
                 outline: 'none',
-                fontSize: '0.88rem',
-                fontWeight: 600,
+                fontSize: '0.86rem',
+                fontWeight: 500,
                 color: 'var(--text-main)',
               }}
             />
@@ -104,20 +124,20 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
         </div>
 
         {/* Check-Out Date */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <label style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+          <label style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Check Out
           </label>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.55rem',
-            padding: '0.65rem 0.85rem',
-            backgroundColor: 'var(--bg-subtle)',
-            borderRadius: '14px',
+            gap: '0.5rem',
+            padding: '0.6rem 0.8rem',
+            backgroundColor: 'var(--input-bg)',
+            borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border-color)',
           }}>
-            <Calendar size={17} color="#059669" />
+            <Calendar size={15} color="var(--primary)" />
             <input
               type="date"
               value={filters.checkOut || ''}
@@ -127,8 +147,8 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
                 border: 'none',
                 background: 'transparent',
                 outline: 'none',
-                fontSize: '0.88rem',
-                fontWeight: 600,
+                fontSize: '0.86rem',
+                fontWeight: 500,
                 color: 'var(--text-main)',
               }}
             />
@@ -136,20 +156,20 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
         </div>
 
         {/* Property Type Dropdown */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <label style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+          <label style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Property Type
           </label>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.55rem',
-            padding: '0.65rem 0.85rem',
-            backgroundColor: 'var(--bg-subtle)',
-            borderRadius: '14px',
+            gap: '0.5rem',
+            padding: '0.6rem 0.8rem',
+            backgroundColor: 'var(--input-bg)',
+            borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border-color)',
           }}>
-            <Home size={17} color="#059669" />
+            <Home size={15} color="var(--primary)" />
             <select
               value={filters.propertyType || ''}
               onChange={(e) => onFilterChange({ propertyType: e.target.value === 'All' ? '' : e.target.value })}
@@ -158,14 +178,14 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
                 border: 'none',
                 background: 'transparent',
                 outline: 'none',
-                fontSize: '0.88rem',
-                fontWeight: 600,
+                fontSize: '0.86rem',
+                fontWeight: 500,
                 color: 'var(--text-main)',
                 cursor: 'pointer',
               }}
             >
               {propertyTypes.map((type) => (
-                <option key={type} value={type === 'All' ? '' : type} style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-main)' }}>
+                <option key={type} value={type === 'All' ? '' : type} style={{ backgroundColor: 'var(--bg-card-solid)', color: 'var(--text-main)' }}>
                   {type}
                 </option>
               ))}
@@ -174,20 +194,20 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
         </div>
 
         {/* Max Budget Filter */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <label style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+          <label style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Max Price / Night
           </label>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.55rem',
-            padding: '0.65rem 0.85rem',
-            backgroundColor: 'var(--bg-subtle)',
-            borderRadius: '14px',
+            gap: '0.5rem',
+            padding: '0.6rem 0.8rem',
+            backgroundColor: 'var(--input-bg)',
+            borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border-color)',
           }}>
-            <span style={{ fontWeight: 800, color: '#059669', fontSize: '0.95rem' }}>₹</span>
+            <span style={{ fontWeight: 600, color: 'var(--primary)', fontSize: '0.9rem' }}>₹</span>
             <input
               type="number"
               placeholder="Max budget (₹)"
@@ -198,8 +218,8 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
                 border: 'none',
                 background: 'transparent',
                 outline: 'none',
-                fontSize: '0.88rem',
-                fontWeight: 600,
+                fontSize: '0.86rem',
+                fontWeight: 500,
                 color: 'var(--text-main)',
               }}
             />
@@ -207,7 +227,7 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
         </div>
 
         {/* Action Buttons */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.6rem', height: '100%', marginTop: 'auto' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.5rem', height: '100%', marginTop: 'auto' }}>
           <button
             onClick={onSearch}
             aria-label="Filter stays"
@@ -216,22 +236,21 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.5rem',
-              padding: '0.72rem 1.25rem',
-              background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
+              gap: '0.45rem',
+              padding: '0.65rem 1.15rem',
+              background: 'var(--primary)',
               color: '#ffffff',
               border: 'none',
-              borderRadius: '14px',
-              fontSize: '0.92rem',
-              fontWeight: 700,
+              borderRadius: 'var(--radius-sm)',
+              fontSize: '0.88rem',
+              fontWeight: 500,
               cursor: 'pointer',
-              boxShadow: '0 4px 14px rgba(5, 150, 105, 0.35)',
-              transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
-            onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 6px 18px rgba(5, 150, 105, 0.45)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.boxShadow = '0 4px 14px rgba(5, 150, 105, 0.35)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'var(--primary-hover)'; }}
+            onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'var(--primary)'; }}
           >
-            <Search size={16} strokeWidth={2.5} />
+            <Search size={15} strokeWidth={2.2} />
             Search
           </button>
           <button
@@ -239,29 +258,29 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
             title="Reset Filters"
             aria-label="Reset all search filters"
             style={{
-              padding: '0.72rem',
-              backgroundColor: 'var(--bg-subtle)',
+              padding: '0.65rem',
+              backgroundColor: 'var(--input-bg)',
               color: 'var(--text-muted)',
               border: '1px solid var(--border-color)',
-              borderRadius: '14px',
+              borderRadius: 'var(--radius-sm)',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'background-color 0.15s ease, color 0.15s ease, transform 0.15s ease',
+              transition: 'background-color 0.2s ease, color 0.2s ease',
             }}
-            onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'var(--border-color)'; e.currentTarget.style.color = 'var(--text-main)'; e.currentTarget.style.transform = 'rotate(-20deg)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-subtle)'; e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.transform = 'rotate(0deg)'; }}
+            onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'var(--border-color)'; e.currentTarget.style.color = 'var(--text-main)'; }}
+            onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'var(--input-bg)'; e.currentTarget.style.color = 'var(--text-muted)'; }}
           >
-            <RotateCcw size={16} />
+            <RotateCcw size={15} />
           </button>
         </div>
       </div>
 
-      {/* City Quick Chips */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', paddingTop: '0.85rem', borderTop: '1px solid var(--border-color)' }}>
-        <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-          Top Spots:
+      {/* City Segment Chips */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', paddingTop: '0.75rem', borderTop: '1px solid var(--border-subtle)' }}>
+        <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+          Top Destinations:
         </span>
         {popularCities.map((city) => {
           const isSelected = (city === 'All' && !filters.city) || filters.city === city;
@@ -270,25 +289,24 @@ const FilterBar = ({ filters, onFilterChange, onSearch, onReset }) => {
               key={city}
               onClick={() => onFilterChange({ city: city === 'All' ? '' : city })}
               style={{
-                fontSize: '0.8rem',
-                fontWeight: isSelected ? 700 : 600,
-                padding: '0.35rem 0.95rem',
-                borderRadius: '9999px',
-                border: isSelected ? '1px solid #059669' : '1px solid var(--border-color)',
-                backgroundColor: isSelected ? '#059669' : 'var(--bg-subtle)',
-                color: isSelected ? '#ffffff' : 'var(--text-main)',
+                fontSize: '0.78rem',
+                fontWeight: isSelected ? 600 : 400,
+                padding: '0.3rem 0.85rem',
+                borderRadius: 'var(--radius-full)',
+                border: isSelected ? '1px solid var(--text-main)' : '1px solid var(--border-color)',
+                backgroundColor: isSelected ? 'var(--text-main)' : 'transparent',
+                color: isSelected ? 'var(--bg-main)' : 'var(--text-main)',
                 cursor: 'pointer',
-                boxShadow: isSelected ? '0 2px 8px rgba(5, 150, 105, 0.3)' : 'none',
                 transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
               onMouseOver={(e) => {
                 if (!isSelected) {
-                  e.currentTarget.style.backgroundColor = 'var(--border-color)';
+                  e.currentTarget.style.backgroundColor = 'var(--input-bg)';
                 }
               }}
               onMouseOut={(e) => {
                 if (!isSelected) {
-                  e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
+                  e.currentTarget.style.backgroundColor = 'transparent';
                 }
               }}
             >

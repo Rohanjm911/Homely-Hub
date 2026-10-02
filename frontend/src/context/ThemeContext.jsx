@@ -54,10 +54,21 @@ export const ThemeProvider = ({ children }) => {
   const toggleTheme = (event) => {
     const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
 
-    // If browser supports View Transitions API, animate circular ripple from button coordinates
-    if (document.startViewTransition && event?.clientX !== undefined) {
-      const x = event.clientX;
-      const y = event.clientY;
+    // If browser supports View Transitions API, animate buttery smooth circular ripple from button
+    if (document.startViewTransition) {
+      // Find button coordinates or fallback to center
+      let x = window.innerWidth - 60;
+      let y = 30;
+
+      if (event?.clientX !== undefined && event?.clientY !== undefined) {
+        x = event.clientX;
+        y = event.clientY;
+      } else if (event?.currentTarget) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        x = rect.left + rect.width / 2;
+        y = rect.top + rect.height / 2;
+      }
+
       const endRadius = Math.hypot(
         Math.max(x, window.innerWidth - x),
         Math.max(y, window.innerHeight - y)
@@ -70,7 +81,7 @@ export const ThemeProvider = ({ children }) => {
       transition.ready.then(() => {
         const isGoingToDark = nextTheme === 'dark';
         
-        // When going to dark: expand from button. When going to light: collapse back into button
+        // Fluid ripple animation with apple-style natural spring physics
         if (isGoingToDark) {
           document.documentElement.animate(
             {
@@ -80,8 +91,8 @@ export const ThemeProvider = ({ children }) => {
               ],
             },
             {
-              duration: 550,
-              easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+              duration: 520,
+              easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
               pseudoElement: '::view-transition-new(root)',
             }
           );
@@ -94,8 +105,8 @@ export const ThemeProvider = ({ children }) => {
               ],
             },
             {
-              duration: 550,
-              easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+              duration: 520,
+              easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
               pseudoElement: '::view-transition-old(root)',
             }
           );
