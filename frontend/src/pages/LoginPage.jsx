@@ -22,7 +22,7 @@ const LoginPage = () => {
     dispatch(clearError());
     const res = await dispatch(loginUser({ email, password }));
     if (!res.error) {
-      const loggedUser = res.payload?.user;
+      const loggedUser = res.payload?.user || res.payload;
       if (loggedUser?.role === 'host') {
         navigate('/host/dashboard', { replace: true });
       } else {
@@ -39,7 +39,7 @@ const LoginPage = () => {
     dispatch(clearError());
     const res = await dispatch(loginUser({ email: demoEmail, password: demoPassword }));
     if (!res.error) {
-      const loggedUser = res.payload?.user;
+      const loggedUser = res.payload?.user || res.payload;
       if (loggedUser?.role === 'host') {
         navigate('/host/dashboard', { replace: true });
       } else {

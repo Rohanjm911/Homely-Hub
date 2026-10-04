@@ -22,6 +22,47 @@ Featuring a modern **Nordic Frost & Electric Violet** interface, buttery-smooth 
 
 ---
 
+## 📸 Platform Experience & Visual Showcase
+
+### 🏠 Discovery & Property Exploration
+| Homepage Hero & Dynamic Search | Curated Stay Listings Grid |
+| :---: | :---: |
+| <img src="screenshots/01_homepage_hero.png" alt="HomelyHub Homepage Hero" width="100%" /> | <img src="screenshots/02_stay_listings_grid.png" alt="Stays Listing Grid" width="100%" /> |
+| *Nordic Frost dark aesthetic, destination search & category filter strip* | *Interactive property cards with photo carousels, badges & pricing* |
+
+### 🗺️ Geographic Exploration & Stay Deep-Dive
+| Interactive Leaflet Map Experience | Property Details & Real-Time Booking Suite |
+| :---: | :---: |
+| <img src="screenshots/03_interactive_map.png" alt="Interactive Leaflet Map" width="100%" /> | <img src="screenshots/04_property_details.png" alt="Property Detail & Booking Suite" width="100%" /> |
+| *Real-time price-pill map markers across top Indian destinations* | *Photo galleries, host verification, amenity checklist & date overlap guard* |
+
+### 🤖 Intelligent AI Workflows (Powered by Groq)
+| Groq AI Trip Planner & Itinerary Engine | AI Property Description Writer |
+| :---: | :---: |
+| <img src="screenshots/05_ai_trip_planner.png" alt="AI Trip Planner" width="100%" /> | <img src="screenshots/09_add_property_ai.png" alt="AI Property Description Generator" width="100%" /> |
+| *Tailored multi-day itineraries with budget breakdown & PDF export* | *Hallucination-free listing copy generated strictly from selected amenities* |
+
+### 📊 Host Operations & Analytics Command Center
+| Revenue & Operations Metrics | Financial Charts & Booking Management |
+| :---: | :---: |
+| <img src="screenshots/07_host_dashboard.png" alt="Host Analytics Command Center" width="100%" /> | <img src="screenshots/08_host_properties_and_bookings.png" alt="Host Charts & Booking Tables" width="100%" /> |
+| *Total revenue (₹40,120), active reservations, room occupancy & rapid actions* | *Monthly revenue bar chart, occupancy donut gauge & tenant arrival logs* |
+
+### 🧳 Guest Travel Hub & Living Sanctuary Auth
+| Guest Travel Dashboard | Living Sanctuary Authentication |
+| :---: | :---: |
+| <img src="screenshots/10_guest_dashboard.png" alt="Guest Travel Dashboard" width="100%" /> | <img src="screenshots/06_login_sanctuary.png" alt="Living Sanctuary Login" width="100%" /> |
+| *Lifetime travel spend, upcoming trip countdowns & reservation history* | *Floating villa micro-physics, ambient night glow & 1-click demo logins* |
+
+### ☀️ Nordic Frost Light Theme Showcase
+<p align="center">
+  <img src="screenshots/11_light_mode_showcase.png" alt="HomelyHub Nordic Frost Light Mode Showcase" width="100%" />
+  <br />
+  <em>Glacial slate surfaces, crisp typography, and seamless circular-ripple theme transition between light and dark modes</em>
+</p>
+
+---
+
 ## ✨ Dynamic Visual & Animation Features
 
 - **🏠 Interactive Living Sanctuary Animation**:
