@@ -88,7 +88,7 @@ Featuring a modern **Nordic Frost & Electric Violet** interface, buttery-smooth 
 ## 🚀 Core Features
 
 <p align="center">
-  <img src="features-ticker.svg" alt="Core Platform Engines" width="760" />
+  <img src="features-ticker.png" alt="Core Platform Engines" width="760" />
 </p>
 
 
